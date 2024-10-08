@@ -6,7 +6,7 @@ const cors = require("cors");
 
 dotenv.config();
 
-const PORT = 2900;
+const PORT = 2900 || process.env.MONGOOSE_URI;
 const app = express();
 
 
@@ -44,7 +44,11 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
+app.get('/', (req, res) => {
+    res.send('Deployment successful!');
+  });
+
 
 app.listen(PORT, () => {
-    console.log(`Server listening at http://localhost:${PORT}`);
+    console.log(`Server listening at ${PORT}`);
 });
