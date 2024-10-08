@@ -18,10 +18,7 @@ const cartRoute = require("./Routes/cart");
 
 async function dbConnect() {
     try {
-        await mongoose.connect(process.env.MONGOOSE_URI, {
-            useNewUrlParser: true,
-            useUnifiedTopology: true
-        });
+        await mongoose.connect(process.env.MONGOOSE_URI);
         console.log("DB Connected Successfully!!!");
     } catch (err) {
         console.log(`DB Connection Error: ${err.message}`);
