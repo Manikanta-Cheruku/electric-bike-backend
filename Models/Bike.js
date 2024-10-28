@@ -13,7 +13,10 @@ const TrialSchema = new mongoose.Schema({
 });
 
 const bikeSchema = new mongoose.Schema({
-  image: { type: String },
+  image: {
+    type : String
+  },
+  thumbnails : [String],
   model: { type: String, required: true },
   color: { type: String, required: true },
   price: { 
